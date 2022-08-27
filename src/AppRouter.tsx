@@ -1,0 +1,23 @@
+import React, { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+const Homes = React.lazy(() => import('./pages/home/Homes'));
+const Help = React.lazy(() => import('./pages/Help/Help'));
+
+type BoxProps = {
+  children: React.ReactNode; // 👈️ type children
+};
+
+const AppRouter = (props: BoxProps) => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        {props.children}
+
+        <Route path="/" element={<Homes />} />
+        <Route path="help" element={<Help />} />
+      </Routes>
+    </Suspense>
+  );
+};
+
+export default AppRouter;
