@@ -7,3 +7,10 @@ interface IProduct {
   price: number;
   image: string;
 }
+
+interface IStore {
+  id?: string;
+  name: string;
+  description: string;
+  image: string;
+}

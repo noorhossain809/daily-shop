@@ -1,20 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Store = ({store}: any) => {
-    const {img, description} = store;
+    const {img, description, id} = store;
     return (
         <div className="my-4">
-      <div className="card bg-base-100 w-56 cursor-pointer hover:shadow-2xl rounded-none">
-        <div className="relative">
+     <Link to={`store/${id}`}>
+     <div className="card bg-base-100 w-56 cursor-pointer hover:shadow-2xl rounded-none">
+        <div className="">
           <figure>
             <img className="h-52" src={img} alt="Shoes" />
 
-            <button
-              className=" btn btn-outline btn-secondary px-12 absolute text-gray-100"
-             
-            >
-              Quick View
-            </button>
+        
           </figure>
         </div>
 
@@ -24,7 +22,7 @@ const Store = ({store}: any) => {
                         <div class="badge badge-secondary">NEW</div>
                     </h2> */}
           <p className="">{description}</p>
-          <div className="gap-y-0">
+          <div className="flex justify-between">
             <p className="text-red-500 font-medium text-xl">
               <span className="text-3xl">৳</span> 520
             </p>
@@ -35,9 +33,16 @@ const Store = ({store}: any) => {
               <span className="text-gray-900">-57%</span>
             </p>
           </div>
+          <button
+              className=" btn btn-outline text-red-500 hover:bg-red-700 hover:border-red-700 btn-sm rounded-none my-2"
+             
+            >
+              Add to Cart
+            </button>
         </div>
       </div>
-   
+     </Link>
+
     </div>
     );
 };

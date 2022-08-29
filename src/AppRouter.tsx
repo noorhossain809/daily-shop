@@ -1,3 +1,4 @@
+import StoreView from 'components/common/StoreView';
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 const Homes = React.lazy(() => import('./pages/home/Homes'));
@@ -15,6 +16,7 @@ const AppRouter = (props: BoxProps) => {
 
         <Route path="/" element={<Homes />} />
         <Route path="help" element={<Help />} />
+        <Route path="store/:id" element={<StoreView />} />
       </Routes>
     </Suspense>
   );

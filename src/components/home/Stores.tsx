@@ -74,7 +74,7 @@ const stores = [
 
 const Stores = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isLoading, setIsLoading] = useState('pending')
+  const [isLoading, setIsLoading] = useState(null)
     return (
         <div className="bg-slate-200">
         <div className="container py-16">
