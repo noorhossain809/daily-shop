@@ -1,33 +1,17 @@
-import { useState } from 'react';
-import ProductView from './ProductView';
+import React from 'react';
 
-interface IProps {
-  product: IProduct;
-}
-
-const Product = ({ product }: IProps) => {
-  console.log(product);
-  const { image, description } = product;
-
-  const [open, setIsOpen] = useState(false);
-
-  function openReview() {
-    setIsOpen(true);
-  }
-
-  function closeReview() {
-    setIsOpen(false);
-  }
-  return (
-    <div className="my-4">
+const Store = ({store}: any) => {
+    const {img, description} = store;
+    return (
+        <div className="my-4">
       <div className="card bg-base-100 w-56 cursor-pointer hover:shadow-2xl rounded-none">
         <div className="relative">
           <figure>
-            <img className="h-52" src={image} alt="Shoes" />
+            <img className="h-52" src={img} alt="Shoes" />
 
             <button
               className=" btn btn-outline btn-secondary px-12 absolute text-gray-100"
-              onClick={openReview}
+             
             >
               Quick View
             </button>
@@ -53,14 +37,9 @@ const Product = ({ product }: IProps) => {
           </div>
         </div>
       </div>
-      <ProductView
-        open={open}
-        closeReview={closeReview}
-        openReview={openReview}
-        pd={product}
-      ></ProductView>
+   
     </div>
-  );
+    );
 };
 
-export default Product;
+export default Store;

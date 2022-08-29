@@ -1,21 +1,19 @@
 import Products from '../../components/home/Products';
-import Home from '../../components/home/Home';
-import { useEffect, useState } from 'react';
+import Banner from '../../components/home/Banner';
 import ProductService from 'services/ProductService';
+import useAsync from 'hooks/useAsync';
+import Stores from 'components/home/Stores';
 // import UploadedImage from '../../forms/UploadedImage';
 
-const Homes = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
 
-  useEffect(() => {
-    ProductService.getProducts().then((response) => {
-      setProducts(response);
-    });
-  }, []);
+const Homes = () => {
+
+ const {data, isLoading} = useAsync(ProductService.getProducts)
   return (
     <div>
-      <Home />
-      <Products products={products} />
+      <Banner />
+      <Products products={data} isLoading={isLoading} />
+      <Stores />
       {/* <UploadedImage /> */}
     </div>
   );

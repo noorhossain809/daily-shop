@@ -71,7 +71,8 @@ import Product from '../../components/common/Product';
 // ]
 
 interface IProps {
-  products: IProduct[];
+  products: IProduct[] | null;
+  isLoading: boolean;
 }
 
 const Products = ({ products }: IProps) => {
@@ -99,7 +100,7 @@ const Products = ({ products }: IProps) => {
             </label>
           </div>
           <div className="grid md:grid-cols-6 gap-x-6">
-            {products.map((product) => (
+            {products?.map((product: IProduct) => (
               <Product product={product} key={product._id}></Product>
             ))}
           </div>

@@ -1,6 +1,6 @@
 import Slider from '../custom/Slider';
 
-const Home = () => {
+const Banner = () => {
   return (
     <div className="">
       <div className="grid md:grid-cols-4 md:mx-28 gap-4">
@@ -27,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Banner;
