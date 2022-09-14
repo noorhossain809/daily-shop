@@ -6,7 +6,7 @@ import AuthService from 'services/AuthService';
 
 export const login = (payload : {email : string, password : string})  => {
 
-    return (dispatch : Dispatch<AuthAction>) => {
+    return (dispatch : Dispatch<AuthAction>)  => {
         AuthService.login(payload)
         .then((data) => {
             dispatch({

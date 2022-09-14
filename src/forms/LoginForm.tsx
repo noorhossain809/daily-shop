@@ -4,10 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "redux/actionCreators/authActionCreators";
 import { AppState } from "redux/store";
 
-interface ILoginFormData {
-    email: string,
-    password: string
-}
+// interface ILoginFormData {
+//     email: string,
+//     password: string
+// }
 
 const LoginForm = () => {
    const [loginData, setLoginData] = useState({
@@ -21,7 +21,7 @@ const LoginForm = () => {
    const data = useSelector((state : AppState) => state.auth)
 
   const handleInputChange = (e : React.ChangeEvent<HTMLInputElement>) => {
-   setLoginData({...loginData, [e.target.name]: e.target.name})
+   setLoginData({...loginData, [e.target.name]: e.target.value})
   }
 
   if(data){
