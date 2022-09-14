@@ -1,22 +1,21 @@
-import { ActionTypes } from './../actionTypes';
+import { ActionTypes } from "redux/actionTypes"
 
-
-export const addToCart = (payload : IProduct) => {
-    return {
-        type : ActionTypes.ADD_TO_CART,
-        payload
-    }
+interface addToCartAction  {
+    type : ActionTypes.ADD_TO_CART,
+    payload: IProduct
 }
 
-export const removeFromCart = (payload : IProduct) => {
-    return {
-        type : ActionTypes.REMOVE_FROM_CART,
-        payload
-    }
+interface removeFromCartAction  {
+    type : ActionTypes.REMOVE_FROM_CART,
+    payload: string
 }
 
-export const clearCart = () => {
-    return {
-        type : ActionTypes.CLEAR_CART
-    }
+interface ClearToCartAction  {
+    type : ActionTypes.CLEAR_CART,
+    
 }
+
+export type CartAction =
+    addToCartAction
+    | removeFromCartAction 
+    | ClearToCartAction 

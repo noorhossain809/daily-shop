@@ -14,3 +14,12 @@ interface IStore {
   description: string;
   image: string;
 }
+
+interface IAuthData {
+  name: string;
+  email: string;
+  id: string;
+  role: string;
+  status: string;
+  token: string;
+}

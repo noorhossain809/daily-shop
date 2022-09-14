@@ -8,6 +8,9 @@ import { BiUser } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import TopHeader from './TopHeader';
+// import { useSelector } from 'react-redux';
+// import { AppState } from 'redux/store';
+import { Link } from 'react-router-dom';
 
 const solutions = [
   {
@@ -66,6 +69,7 @@ const resources = [
 ];
 
 const Header = () => {
+  // const cart : IProduct[] = useSelector((state : AppState) => state.cart)
   return (
     <div>
       <TopHeader></TopHeader>
@@ -117,7 +121,10 @@ const Header = () => {
                   <BiUser className="" />
                 </div>
                 <div className="shadow-md p-4 rounded-full hover:shadow-lg">
+                  <Link to="/checkout">
                   <FiShoppingBag />
+                  
+                  </Link>
                 </div>
                 <div className="shadow-md p-4 rounded-full hover:shadow-lg">
                   <IoMdNotificationsOutline />
