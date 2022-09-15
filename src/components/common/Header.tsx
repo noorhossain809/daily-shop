@@ -3,7 +3,7 @@ import { Popover, Transition } from '@headlessui/react';
 
 import { Search } from 'heroicons-react';
 import { FiShoppingCart, FiShoppingBag } from 'react-icons/fi';
-import { BiUser } from 'react-icons/bi';
+import { BiUser, BiLogOut } from 'react-icons/bi';
 // import { MdOutlineClose } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
@@ -11,6 +11,9 @@ import TopHeader from './TopHeader';
 // import { useSelector } from 'react-redux';
 // import { AppState } from 'redux/store';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from 'redux/store';
+import { logout } from 'redux/actionCreators/authActionCreators';
 
 const solutions = [
   {
@@ -69,7 +72,9 @@ const resources = [
 ];
 
 const Header = () => {
+  const dispatch = useDispatch()
   // const cart : IProduct[] = useSelector((state : AppState) => state.cart)
+  const {data} = useSelector((state : AppState) => state.auth)
   return (
     <div>
       <TopHeader></TopHeader>
@@ -117,9 +122,7 @@ const Header = () => {
                 </div>
               </Popover.Group>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 gap-8 cursor-pointer">
-                <div className="shadow-md p-4 rounded-full hover:shadow-lg">
-                  <BiUser className="" />
-                </div>
+                
                 <div className="shadow-md p-4 rounded-full hover:shadow-lg">
                   <Link to="/checkout">
                   <FiShoppingBag />
@@ -129,6 +132,16 @@ const Header = () => {
                 <div className="shadow-md p-4 rounded-full hover:shadow-lg">
                   <IoMdNotificationsOutline />
                 </div>
+                {data ? <div className="shadow-md p-4 rounded-full hover:shadow-lg">
+                 
+                 <BiLogOut className="" onClick={() => dispatch(logout())} />
+                
+                </div>:
+                <div className="shadow-md p-4 rounded-full hover:shadow-lg">
+                 <Link to="/login">
+                 <BiUser className="" />
+                 </Link>
+                </div>}
               </div>
             </div>
           </div>
